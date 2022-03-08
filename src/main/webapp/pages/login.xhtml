@@ -1,0 +1,48 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../resources/css/styles.css" />
+<title>Login | Ma Boutique</title>
+</h:head>
+<h:body>
+
+	<div id="header">
+	<h:messages errorClass="error" globalOnly="true" infoClass="info" styleClass="messages" warnClass="warning"/>
+	&nbsp;</div>
+	
+
+	<div id="content">
+
+		<h1>Ma Boutique</h1>
+
+		<h:form>
+			<table class="form">
+				<tr>
+					<td><label>Identifiant :</label></td>
+					<td>
+						<h:inputText size="15" value="#{modelConnexion.login}"/>
+					</td>
+				</tr>
+				<tr>
+					<td><label>Mot de passe :</label></td>
+					<td>
+						<h:inputSecret size="15" value="#{modelConnexion.pass}"/>
+					</td>
+				</tr>
+			</table>
+
+			<br />
+			<h:commandButton action="#{modelConnexion.login()}" value="Se connecter"/>
+			
+			
+		</h:form>
+	</div>
+
+	<div id="footer">© 2021 - Ma Boutique</div>
+
+</h:body>
+</html>

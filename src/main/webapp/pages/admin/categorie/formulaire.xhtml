@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:metadata>
+	<f:viewParam name="id" value="#{modelCategorie.courant.id}" />
+	<f:viewAction action="#{modelCategorie.actualiserCourant()}" />
+</f:metadata>
+
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="title">Categorie</ui:define>
+	<ui:define name="content">
+		<h1>Categorie</h1>
+		<h:form>
+			<table class="form">
+				<tr>
+					<td><h:outputLabel for="id">Id :</h:outputLabel></td>
+					<td><h:inputText id="id" size="5" readonly="true"
+							value="#{modelCategorie.courant.id}" /> <br /> <h:message for="id"
+							errorClass="error" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="nom">Nom :</h:outputLabel></td>
+					<td><h:inputText id="nom" size="25"
+							value="#{modelCategorie.courant.nom}" /> <br /> <h:message
+							for="nom" errorClass="error" /></td>
+				</tr>
+				
+			</table>
+			<br />
+			<h:button value="Annuler" outcome="liste" />
+			
+			<h:commandButton value="Valider"
+				action="#{modelCategorie.validerMiseAJour()}" />
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
+</html>

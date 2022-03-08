@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns="http://www.ironjacamar.org/doc/schema">
+ <datasource jndi-name="java:jboss/datasources/maboutique" enabled="true" 
+     use-java-context="true" pool-name="maboutique">
+  <connection-url>jdbc:postgresql://localhost:5432/postgres</connection-url>
+  <driver>postgresql-42.2.23.jar</driver>
+  <pool></pool>
+  <security>
+   <user-name>maboutique</user-name>
+   <password>maboutique</password>
+  </security>
+ </datasource>
+</datasources>

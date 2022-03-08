@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/template.xhtml">
+<f:metadata>
+ <f:viewAction action="#{utilJsf.messageFromRequestAttribute()}" />
+</f:metadata>
+
+	<ui:define name="title">Login</ui:define>
+
+	<ui:define name="content">
+	   <h1> #{initParam['site.name']} </h1>
+
+		<h:form>
+			<table class="form">
+				<tr>
+					<td><label>Identifiant :</label></td>
+					<td>
+						<h:inputText size="15" value="#{modelConnexion.login}"/>
+					</td>
+				</tr>
+				<tr>
+					<td><label>Mot de passe :</label></td>
+					<td>
+						<h:inputSecret size="15" value="#{modelConnexion.pass}"/>
+					</td>
+				</tr>
+			</table>
+
+			<br />
+			<h:commandButton action="#{modelConnexion.login()}" value="Se connecter"/>
+			
+			
+		</h:form>
+	</ui:define>
+	
+</ui:composition>
+</html>

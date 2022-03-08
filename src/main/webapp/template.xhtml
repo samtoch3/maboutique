@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:title>
+		<ui:insert name="title"> Sans titre | #{initParam['site.name']} </ui:insert>
+	</h:title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- 	<link rel="stylesheet" type="text/css" href="/css/styles.css" /> -->
+	<h:outputStylesheet name="css/styles.css">
+	</h:outputStylesheet>
+</h:head>
+
+<h:body>
+	<ui:debug hotkey="x"
+		rendered="#{initParam['javax.faces.PROJECT_STAGE']=='Development'}" />
+
+	<div id="header">
+		<h:form rendered="#{modelConnexion.isLoggedIn()}">
+		<h:link value="Accueil" outcome="home" />
+			<h:panelGroup rendered="#{modelConnexion.admin}">
+				<h:link value="Liste des utilisateurs" outcome="user" />
+				<h:link value="Liste des categories" outcome="categories" />
+				<h:link value="Liste des produits" outcome="produits" />
+				
+			</h:panelGroup> - 
+			Bonjour #{modelConnexion.getActifUser().name} - 
+			
+			
+			<h:commandLink action="#{modelConnexion.logout()}"
+				value="Deconnexion">
+				
+			</h:commandLink>
+		</h:form>
+	</div>
+	<h:messages errorClass="error" globalOnly="true" infoClass="info"
+		styleClass="messages" warnClass="warning" />
+
+
+
+	<div id="content">
+		<ui:insert name="content">
+    	Contenu absent
+  </ui:insert>
+	</div>
+
+	<div id="footer">
+		<ui:insert name="footer">© <h:outputText
+				value="#{utilJsf.now()}">
+				<f:convertDateTime pattern="yyyy">
+				</f:convertDateTime>
+			</h:outputText> - #{initParam['site.name']}
+  </ui:insert>
+	</div>
+
+</h:body>
+
+</html>

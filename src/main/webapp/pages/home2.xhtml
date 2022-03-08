@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:metadata>
+	<f:viewAction action="#{utilJsf.messageFromRequestAttribute()}" />
+</f:metadata>
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="title">Home</ui:define>
+	<ui:define name="content">
+		<table class="home">
+			<tr>
+				<td><h:graphicImage name="images/logo.png" /> <br />
+					<h3>#{initParam['site.name']}</h3></td>
+			</tr>
+			<tr>
+				<td><h:link value="Voir les produits" outcome="catalogue" /></td>
+			</tr>
+			<tr>
+				<td><h:link value="Voir le panier" outcome="panier" /></td>
+				<!--<td><h:outputLink target="_blank"
+						value="Voir le panier" outcome="panier">
+				Voir le panier
+				</h:outputLink></td>-->
+			</tr>
+		</table>
+	</ui:define>
+
+</ui:composition>
+</html>

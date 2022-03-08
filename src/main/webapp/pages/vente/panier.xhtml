@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="title">Panier</ui:define>
+	<ui:define name="content">
+		<h1>Panier</h1>
+		<h:form>
+			<h:panelGroup rendered="#{empty modelPanier.panier}">
+				<h4>Votre panier est vide.</h4>
+			</h:panelGroup>
+			<h:dataTable styleClass="liste" value="#{modelPanier.panier}"
+				var="item" rowClasses="impair, pair"
+				columnClasses="left,right,left,left,center" rendered="#{not empty modelPanier.panier}">
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nom" />
+					</f:facet>
+					#{item.nom}
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Prix" />
+					</f:facet>
+
+					<h:outputText value="#{item.prix}">
+						<f:convertNumber pattern="#,##0.00 €" />
+					</h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Categorie" />
+					</f:facet>
+					#{item.categorie.nom}
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Vendeur" />
+					</f:facet>
+					
+					#{item.vendeur.name} #{item.vendeur.firstname}
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Actions" />
+					</f:facet>
+					<h:commandButton action="#{modelPanier.supprimer(item)}"
+						value="Supprimer" image="#{ resource['images:supprimer.png'] }"
+						title="Supprimer" styleClass="image-action">
+					</h:commandButton>
+				</h:column>
+
+			</h:dataTable>
+			<br />
+			<h:panelGroup rendered="#{not empty modelPanier.panier}">
+				<h4>
+					Montant à payer :
+					<h:inputText value="#{modelPanier.total}" size="6"
+						style="text-align:right;font-size:1.1em;font-weight: bold;"
+						readonly="true">
+						<f:convertNumber pattern="#,##0.00" />
+					</h:inputText>
+					€
+				</h4>
+			</h:panelGroup>
+
+
+			<br />
+			<h:button value="Retour au catalogue" outcome="catalogue">
+			</h:button>
+			<h:commandButton value="Valider la commande"
+				action="#{modelPanier.valider()}" rendered="#{not empty modelPanier.panier}"/>
+
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
+</html>

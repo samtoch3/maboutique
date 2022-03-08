@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="title">Utilisateurs</ui:define>
+	<ui:define name="content">
+		<h1>Utilisateurs</h1>
+		<h:form>
+			<h:dataTable styleClass="liste" value="#{modelUser.liste}" var="item"
+				rowClasses="impair, pair" columnClasses="center,left,center">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Id" />
+					</f:facet>
+					#{item.id}
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nom" />
+					</f:facet>
+					#{item.name} #{item.firstname}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Actions" />
+					</f:facet>
+					<h:button outcome="formulaire?id=#{item.id}"
+						image="#{ resource['images:modifier.png'] }" title="Modifier"
+						styleClass="image-action" />
+					<h:commandButton action="#{modelUser.supprimer(item)}"
+					value="Supprimer"
+					onclick="return confirm('Confirmez-vous la suppression ?')"
+					image="#{ resource['images:supprimer.png'] }" title="Supprimer"
+					styleClass="image-action">
+					<f:ajax render="@form" execute="@form" />
+				</h:commandButton>
+				</h:column>
+
+			</h:dataTable>
+
+			<br />
+			<h:button value="Ajouter" outcome="formulaire" />
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
+</html>

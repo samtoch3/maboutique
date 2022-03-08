@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="title">Catalogue</ui:define>
+	<ui:define name="content">
+		<h1>Catalogue</h1>
+		<h:form>
+			<h:dataTable styleClass="liste" value="#{modelCatalogue.liste}"
+				var="item" rowClasses="impair, pair"
+				columnClasses="center,left,right,center,left,left,left,center">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="" />
+					</f:facet>
+					<h:selectBooleanCheckbox value="#{item.choisi}">
+					</h:selectBooleanCheckbox>
+				</h:column>
+
+
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nom" />
+					</f:facet>
+					#{item.produit.nom}
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Prix" />
+					</f:facet>
+					<!--  #{item.produit.prix} -->
+					<h:outputText value="#{item.produit.prix}">
+						<f:convertNumber pattern="#,##0.00 €" />
+					</h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Categorie" />
+					</f:facet>
+					#{item.produit.categorie.nom}
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Vendeur" />
+					</f:facet>
+					#{item.produit.vendeur.name} #{item.produit.vendeur.firstname}
+				</h:column>
+
+
+			</h:dataTable>
+
+			<br />
+			<h:commandButton value="Ajouter au panier"
+				action="#{modelCatalogue.remplirPanier()}" />
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
+</html>

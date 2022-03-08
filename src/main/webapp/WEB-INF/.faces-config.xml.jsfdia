@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="184,176,53,74" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="home::#pages#home2.xhtml" NAME="output"
+    PATH="/pages/home2.xhtml" TARGET="rules:#pages#home2.xhtml"
+    TITLE="home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#login2.xhtml" NAME="output1"
+    PATH="/login2.xhtml" TARGET="rules:#login2.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="user::#pages#admin#user#liste.xhtml"
+    NAME="output2" PATH="/pages/admin/user/liste.xhtml"
+    TARGET="rules:#pages#admin#user#liste.xhtml" TITLE="user" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="categories::#pages#admin#categorie#liste.xhtml" NAME="output3"
+    PATH="/pages/admin/categorie/liste.xhtml"
+    TARGET="rules:#pages#admin#categorie#liste.xhtml" TITLE="categories" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="produits::#pages#admin#produit#liste.xhtml"
+    NAME="output4" PATH="/pages/admin/produit/liste.xhtml"
+    TARGET="rules:#pages#admin#produit#liste.xhtml" TITLE="produits" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="catalogue::#pages#vente#catalogue.xhtml"
+    NAME="output5" PATH="/pages/vente/catalogue.xhtml"
+    TARGET="rules:#pages#vente#catalogue.xhtml" TITLE="catalogue" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="panier::#pages#vente#panier.xhtml"
+    NAME="output6" PATH="/pages/vente/panier.xhtml"
+    TARGET="rules:#pages#vente#panier.xhtml" TITLE="panier" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#login2.xhtml" PATH="/login2.xhtml"
+  SHAPE="504,440,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#home2.xhtml" PATH="/pages/home2.xhtml"
+  SHAPE="456,272,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#pages#admin#categorie#liste.xhtml"
+  PATH="/pages/admin/categorie/liste.xhtml" SHAPE="166,374,0,0"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#pages#admin#user#liste.xhtml"
+  PATH="/pages/admin/user/liste.xhtml" SHAPE="640,168,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#pages#admin#produit#liste.xhtml"
+  PATH="/pages/admin/produit/liste.xhtml" SHAPE="56,424,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#admin#produit#liste.xhtml:0"
+   NAME="item" PATH="/pages/admin/produit/liste.xhtml" model-entity="JSFProcessItem"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#vente#catalogue.xhtml"
+  PATH="/pages/vente/catalogue.xhtml" SHAPE="376,80,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#vente#catalogue.xhtml:0" NAME="item"
+   PATH="/pages/vente/catalogue.xhtml" model-entity="JSFProcessItem"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#vente#panier.xhtml"
+  PATH="/pages/vente/panier.xhtml" SHAPE="48,80,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#vente#panier.xhtml:0" NAME="item"
+   PATH="/pages/vente/panier.xhtml" model-entity="JSFProcessItem"/>
+ </PROCESS-ITEM>
+</PROCESS>

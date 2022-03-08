@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../resources/css/styles.css" />
+<title>Home | Ma Boutique</title>
+</h:head>
+<h:body>
+
+	<div id="header">
+		<h:form>
+		<h:commandLink action="#{modelConnexion.logout()}" value="Deconnexion">
+		</h:commandLink>
+		</h:form>
+	</div>
+	<h:messages errorClass="error" globalOnly="true" infoClass="info" styleClass="messages" warnClass="warning"/>
+
+	<div id="content">
+		<table class="home">
+			<tr><td>
+				<h:graphicImage name="images/logo.png"/>
+				<br />
+				<h3>Ma Boutique</h3>
+			</td></tr>
+			<tr><td>
+				<h:outputLink target="_blank" value="#{ressource['pdf/produits.pdf']}">
+				Voir les produits
+				</h:outputLink>
+			</td></tr>
+			<tr><td>
+				<h:outputLink target="_blank" value="#{ressource['images/panier.jpg']}">
+				Voir le panier
+				</h:outputLink>
+			</td></tr>
+		</table>
+	</div>
+
+	<div id="footer">© 2021 - Ma Boutique</div>
+
+</h:body>
+</html>
